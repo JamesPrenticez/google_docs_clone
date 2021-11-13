@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <bx:grid x="0" y="0" width="112.426" height="97.041"/>
+  </defs>
+  <path d="M 737 -85.418 L 795.877 83.963 L 975.162 87.617 L 832.265 195.953 L 884.192 367.592 L 737 265.167 L 589.808 367.592 L 641.735 195.953 L 498.838 87.617 L 678.123 83.963 Z" style="fill: rgb(255, 242, 0);" transform="matrix(-0.80339, -0.595454, 0.595454, -0.80339, 744.007049, 845.372667)" bx:shape="star 737 165 250.418 250.418 0.4 5 1@e90553d2"/>
+</svg>
