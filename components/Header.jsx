@@ -37,7 +37,7 @@ function Header() {
         rounded={true}
         iconOnly={true}
         ripple="dark"
-        className="md:inline-flex ml-5 md:ml-20 h-20 w-20 border-0"
+        className="hidden md:inline-flex ml-5 md:ml-20 h-20 w-20 border-0"
       >
         <Icon name="apps" size="3xl" color="gray" />
       </Button>
@@ -46,7 +46,7 @@ function Header() {
       <img 
         loading="lazy"
         //onClick={signOut}
-        className="cursor-pointer h-12 w-12 rounded-full ml-2"
+        className="hidden md:inline-flex cursor-pointer h-12 w-12 rounded-full ml-2"
         src={"/profile.jfif"}
         alt=""
       />
