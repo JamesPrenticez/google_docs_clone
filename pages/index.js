@@ -2,18 +2,30 @@ import Head from 'next/head'
 import Header from '../components/Header'
 import NewDoc from '../components/NewDoc'
 import MyDocs from '../components/MyDocs'
+import { useSession } from "next-auth/react"
+import Login from '../components/Login'
 
 export default function Home() {
+  const {data: session} = useSession();
+  console.log(session)
+  
   return (
-    <div>
-      <Head>
-        <title>Google Docs Clone</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
+    <Head>
+      <title>Google Docs Clone</title>
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
 
-    <Header />
-    <NewDoc />
-    <MyDocs />
-    </div>
+    {!session ? (
+      <Login />
+    ) : (
+      <div>
+        <Header />
+        <NewDoc />
+        <MyDocs />
+      </div>
+    )}
+  </>
+
   )
 }
