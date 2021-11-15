@@ -1,10 +1,10 @@
-import { getSession, useSession } from "next-auth/react"
+import { useSession, signOut } from "next-auth/react"
 import Button from "@material-tailwind/react/Button";
 import Icon from "@material-tailwind/react/Icon";
 
 function Header() {
   const {data: session} = useSession();
-  console.log(session)
+  
   return (
     <header className="sticky top-0 z-50 flex items-center px-4 py-2 shadow-md bg-white">
       {/*Hamburger Menu Icon*/}
@@ -48,7 +48,7 @@ function Header() {
       {/*Sign In/Out*/}
       <img 
         loading="lazy"
-        //onClick={signOut}
+        onClick={signOut}
         className="hidden md:inline-flex cursor-pointer h-12 w-12 rounded-full ml-2"
         src={session?.user.image}
         alt=""

@@ -1,7 +1,7 @@
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 //import { FirebaseAdapter } from "@next-auth/firebase-adapter"
-//import { app, db } from "../../../firebase"
+//import { app } from "../../../firebase";
 require('dotenv').config();
 
 export default NextAuth({
@@ -12,5 +12,6 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_SECRET,
     }),
   ],
-    //adapter: FirebaseAdapter(app),
+
+  //adapter: FirebaseAdapter(app),
 })
