@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import Header from '../components/Header'
+import Login from '../components/Login'
 import NewDoc from '../components/NewDoc'
 import MyDocs from '../components/MyDocs'
+import DocumentRow from '../components/DocumentRow'
 import { getSession, useSession } from "next-auth/react"
-import Login from '../components/Login'
 
 export default function Home() {
   const {data: session} = useSession();

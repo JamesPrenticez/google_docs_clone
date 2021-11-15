@@ -1,5 +1,3 @@
-import Icon from "@material-tailwind/react/Icon";
-
 import { 
   collection,
   onSnapshot,
@@ -8,10 +6,11 @@ import {
 } from "@firebase/firestore";
 import { db } from "../firebase"
 import { useEffect, useState } from "react";
+import Icon from "@material-tailwind/react/Icon";
+import DocumentRow from "./DocumentRow";
 
 function MyDocs(props) {
   const {name} = props.session.user
-  console.log(name)
   const [docs, setUserDocs] = useState([]);
 
   useEffect(() => {
@@ -19,13 +18,12 @@ function MyDocs(props) {
       query(collection(db, 'userDocs', name, "docs"), orderBy('timestamp', 'desc')),
       (snapshot) => {
         setUserDocs(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-        console.log(snapshot)
       }
     );
     return unsuscribe;
   }, [db]);
   
-  console.log(docs[0]?.fileName)
+  //console.log(docs[0]?.id)
   return (
     <section className="bg-white px-10 md:px-0">
       <div className="max-w-3xl mx-auto py-8 text-sm text-gray-700">
@@ -35,15 +33,18 @@ function MyDocs(props) {
           <Icon name="folder" size="3xl" color="gray" />
         </div>
 
-        <div>
-
-        {docs.map((document, index) => {
+       {docs.map((doc) => {
         return( 
-          <p key={index}>{document.fileName}</p>
+          <DocumentRow
+            key={doc.id}
+            id={doc.id}
+            fileName={doc.fileName}
+            date={doc.timestamp}
+          />
         )
         })}
 
-        </div>
+        
 
 
       </div>
