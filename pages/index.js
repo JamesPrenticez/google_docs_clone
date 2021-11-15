@@ -18,8 +18,8 @@ export default function Home() {
     </Head>
 
     <Header />
-    <NewDoc />
-    <MyDocs />
+    <NewDoc session={session} />
+    <MyDocs session={session} />
   </>
 
   )

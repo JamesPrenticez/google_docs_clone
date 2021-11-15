@@ -2,18 +2,27 @@ import Icon from "@material-tailwind/react/Icon"
 import Image from "next/image"
 import { useState } from "react"
 
+import { addDoc, collection, doc, FieldValue, serverTimestamp} from '@firebase/firestore';
+import { db } from "../firebase"
 
 import Button from "@material-tailwind/react/Button"
 import Modal from "@material-tailwind/react/Modal"
 import ModalBody from "@material-tailwind/react/ModalBody"
 import ModalFooter from "@material-tailwind/react/ModalFooter"
 
-function NewDoc() {
+function NewDoc(props) {
+  const {name} = props.session.user
   const [showModal, setShowModal] = useState(false)
   const [input, setInput] = useState("")
  
    function createDocument(){
-     
+     if(!input) return
+      addDoc(collection(db, "userDocs", name, "docs"), {
+        fileName: input,
+        timestamp: serverTimestamp()
+      });
+      setInput(input)
+      setShowModal(false)
    }
  
    const modal = (
@@ -72,11 +81,10 @@ function NewDoc() {
           </Button>
         </div>
         <div>
-          <div className="relative h-52 w-40 border-2 cursor-pointer hover:border-blue-600">
+          <div onClick={() => setShowModal(true)} className="relative h-52 w-40 border-2 cursor-pointer hover:border-blue-600">
             <Image 
               src="/plus.png"
               layout="fill"
-              onClick={() => setShowModal(true)}
             />
           </div>
           <p className="ml-2 mt-2 font-semibold text-sm text-gray-700">Blank</p>
