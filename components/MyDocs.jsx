@@ -43,10 +43,6 @@ function MyDocs(props) {
           />
         )
         })}
-
-        
-
-
       </div>
     </section>
   );

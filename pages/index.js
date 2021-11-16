@@ -21,6 +21,7 @@ export default function Home() {
     <Header />
     <NewDoc session={session} />
     <MyDocs session={session} />
+  
   </>
 
   )

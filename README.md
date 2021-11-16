@@ -8,6 +8,6 @@
 - Material UI
 - Firebase/Firestore
 - Next Auth [https://next-auth.js.org/getting-started/upgrade-v4]
-- 
-- Draft.js
+- draft.js
+- reaft-draft wysiwyg (what you see is what you get) (Rich Text Editor)[https://github.com/jpuri/react-draft-wysiwyg] dont forget to import the css ```import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";``` into the component your using it in
 
